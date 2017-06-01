@@ -45,7 +45,6 @@ const renderContent = () => {
 const Workouts = () => {
   return (
     <div>
-      <h1>This is the workouts component</h1>
       {renderContent()}
     </div>
   )

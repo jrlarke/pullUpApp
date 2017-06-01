@@ -11,6 +11,7 @@ import {
 
 const LessThanFourPullups = () => {
   return (
+    <ScrollView height={"100vh"}>
     <Center column>
       <h2>Less Than 4 pull ups</h2>
       <p>If you did 0-5 pullups during the test you should start with doing training of descending.
@@ -39,6 +40,11 @@ const LessThanFourPullups = () => {
           </TableRow>
           <TableRow>
             <TableRowColumn>Minimum 1 day break</TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn>2</TableRowColumn>
@@ -50,6 +56,11 @@ const LessThanFourPullups = () => {
           </TableRow>
           <TableRow>
             <TableRowColumn>Minimum 1 day break</TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
           </TableRow>
           <TableRow>
           <TableRowColumn>3</TableRowColumn>
@@ -61,6 +72,11 @@ const LessThanFourPullups = () => {
           </TableRow>
           <TableRow>
             <TableRowColumn>Minimum 2 day break</TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
           </TableRow>
           <TableRow>
           <TableRowColumn>4</TableRowColumn>
@@ -72,6 +88,11 @@ const LessThanFourPullups = () => {
           </TableRow>
           <TableRow>
             <TableRowColumn>Minimum 1 day break</TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
           </TableRow>
           <TableRow>
           <TableRowColumn>5</TableRowColumn>
@@ -83,6 +104,11 @@ const LessThanFourPullups = () => {
           </TableRow>
           <TableRow>
             <TableRowColumn>Minimum 1 day break</TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
           </TableRow>
           <TableRow>
           <TableRowColumn>6</TableRowColumn>
@@ -94,11 +120,17 @@ const LessThanFourPullups = () => {
           </TableRow>
           <TableRow>
             <TableRowColumn>Minimum 2 day break</TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
+            <TableRowColumn></TableRowColumn>
           </TableRow>
         </TableBody>
       </Table>
       </Center>
     </Center>
+    </ScrollView>
   )
 }
 
