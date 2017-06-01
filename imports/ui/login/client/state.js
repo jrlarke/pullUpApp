@@ -2,6 +2,22 @@ import { Meteor } from 'meteor/meteor';
 import { observable, action } from 'mobx'
 
 class LogInState {
+  @observable authenticated = false 
+
+  @action isAuthenticated = (bool) => {
+    this.authenticated = bool
+  }
+
+  @action handleAuthenticate = () => {
+    Meteor.loginWithPassword(this.loginUsername, this.loginPassword, (err)=>{
+    if(err){
+      console.log(err)
+    } else {
+      this.authenticated = true
+    }
+  })
+  }
+
   @observable signUp = false
 
   @observable createUsername = ''

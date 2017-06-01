@@ -10,6 +10,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Form from '../../imports/ui/form/form';
 import Workouts from '../../imports/ui/workouts/workouts';
 import GeneralState from '../../imports/ui/general/state'
+import LoginState from '../../imports/ui/login/client/state'
 import Login from '../../imports/ui/login/login';
 
 export const Main = observer(React.createClass({
@@ -25,7 +26,6 @@ export const Main = observer(React.createClass({
 
   //renders the landing page
   _getContent(){
-    console.log(GeneralState.shouldRender)
     let content
     //if the state is form, render form.jsx
     if(GeneralState.shouldRender === 'form'){
@@ -38,9 +38,13 @@ export const Main = observer(React.createClass({
     return content
   },
   render(){
-    // console.log(GeneralState.currentUser)
-    // if(GeneralState.currentUser !== undefined){
-      // console.log('true*****')
+    if (!LoginState.authenticated) {
+      return (
+        <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+          <Login/>
+        </MuiThemeProvider>
+      )
+    } else {
       return (
         //buttons here are at the top of the page, change the state between form and workouts
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
@@ -52,13 +56,7 @@ export const Main = observer(React.createClass({
           </Page>
         </MuiThemeProvider>
       )
-    // } else {
-    //   return (
-    //     <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-    //       <Login/>
-    //     </MuiThemeProvider>
-    //   )
-    // }
+    }
   }
 })
 )

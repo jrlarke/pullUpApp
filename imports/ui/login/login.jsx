@@ -74,11 +74,7 @@ const handleLoginPasswordChange = (evt) => {
 
 const handleLogin = (evt) => {
   evt.preventDefault()
-  Meteor.loginWithPassword(LogInState.loginUsername, LogInState.loginPassword, (err)=>{
-    if(err){
-      console.log(err)
-    }
-  })
+  LogInState.handleAuthenticate()
 }
 
 const createUser = (evt) => {
