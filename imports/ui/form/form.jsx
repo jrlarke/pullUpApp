@@ -5,6 +5,9 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Center, Page, Box, VBox, ScrollView} from 'react-layout-components';
 
+import { UserPlans } from '../../api/userPlans/userPlans.js'
+import { Plans } from '../../api/plans/plans'
+
 const Form = ({name}) => {
   return (
     <ScrollView height={"100vh"}>
@@ -51,6 +54,648 @@ const changePullUpCount = (evt) => {
 
 const handleSubmit = (evt) => {
   evt.preventDefault()
+  let plan = Plans.findOne({"name" : "50 Pullups"})
+  let planId = plan._id
+  let userPlan = {
+    userId: Meteor.user()._id,
+    planId: planId,
+    initialInput: FormState.pullUpCount,
+    levels: {
+      level3 : {
+        days: {
+          day1 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day2 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day3 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day4 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day5 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day6 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          }
+        }
+      },
+      level5 : {
+        days: {
+          day1 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day2 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day3 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day4 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day5 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day6 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          }
+        }
+      },
+      level8 : {
+        days: {
+          day1 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day2 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day3 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day4 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day5 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day6 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          }
+        }
+      },
+      level11 : {
+        days: {
+          day1 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day2 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day3 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day4 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day5 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day6 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          }
+        }
+      },
+      level15 : {
+        days: {
+          day1 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day2 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day3 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day4 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day5 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day6 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          }
+        }
+      },
+      level20 : {
+        days: {
+          day1 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day2 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day3 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day4 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day5 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day6 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day7 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day8 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day9 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          }
+        }
+      },
+      level25 : {
+        days: {
+          day1 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day2 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day3 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day4 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day5 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day6 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day7 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day8 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day9 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          }
+        }
+      },
+      level30 : {
+        days: {
+          day1 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day2 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day3 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day4 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day5 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day6 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day7 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day8 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day9 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          }
+        }
+      },
+      level35 : {
+        days: {
+          day1 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day2 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day3 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day4 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day5 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day6 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day7 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day8 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day9 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          }
+        }
+      },
+      level40 : {
+        days: {
+          day1 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day2 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day3 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day4 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day5 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day6 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day7 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day8 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day9 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          }
+        }
+      },
+      level41 : {
+        days: {
+          day1 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day2 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day3 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day4 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day5 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day6 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day7 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day8 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          },
+          day9 : {
+            set1: false,
+            set2: false,
+            set3: false,
+            set4: false,
+            set5: 0
+          }
+        }
+      }
+    }
+  }
+  UserPlans.insert(userPlan)
   GeneralState.changeShouldRender('workouts')
 }
 export default Form

@@ -13,6 +13,8 @@ import GeneralState from '../../imports/ui/general/state'
 import LoginState from '../../imports/ui/login/client/state'
 import Login from '../../imports/ui/login/login';
 
+import {Plans} from '../../imports/api/plans/plans'
+
 export const Main = observer(React.createClass({
   displayName: "Main",
   // childContextTypes:{
@@ -38,6 +40,10 @@ export const Main = observer(React.createClass({
     return content
   },
   render(){
+    let plans = Plans.find({}).fetch()
+    console.log('this is plans:')
+    console.log('******************************')
+    console.log(plans)
     if (!LoginState.authenticated) {
       return (
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>

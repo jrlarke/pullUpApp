@@ -7,6 +7,8 @@ import LogInState from '../imports/ui/login/client/state'
 
 import { Main } from './components/main.jsx'
 
+import { userPlans } from '../imports/api/userPlans/userPlans'
+
 const onLoggedOut = autorun(() => {
   LogInState.isAuthenticated(!_.isNull(Meteor.user()))
 })
