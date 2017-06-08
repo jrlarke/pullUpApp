@@ -12,6 +12,7 @@ import Workouts from '../../imports/ui/workouts/workouts';
 import GeneralState from '../../imports/ui/general/state'
 import LoginState from '../../imports/ui/login/client/state'
 import Login from '../../imports/ui/login/login';
+import handleLogout from '../../imports/ui/logout/logout';
 
 import {Plans} from '../../imports/api/plans/plans'
 
@@ -56,7 +57,8 @@ export const Main = observer(React.createClass({
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
           <Page style={{backgroundColor: '#ffffff'}}>
             <Box>
-              <button onClick={()=>{GeneralState.changeShouldRender('form')}}>Form </button>
+              <button onClick={()=>{GeneralState.changeShouldRender('form')}}>Form</button>
+              <button onClick={handleLogout}>Logout</button>
             </Box>
           {this._getContent()}
           </Page>

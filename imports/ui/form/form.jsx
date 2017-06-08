@@ -21,7 +21,7 @@ const Form = ({name}) => {
             <RaisedButton type="submit" label='submit' style={{width: 100}} primary/>
           </Center>
         </form>
-        <form>
+        {/* <form>
           <Center column>
             <TextField floatingLabelText='Enter age here' type='int'name="age"/>
             <TextField floatingLabelText='Enter your Pull Ups here.' type='int' name="pftPullUps"/>
@@ -38,7 +38,7 @@ const Form = ({name}) => {
             <TextField floatingLabelText='Enter manuever under fire time here.' name="cftMUF"/>
             <RaisedButton type="submit" label='calculate CFT score' style={{width:100}} primary/>
           </Center>
-        </form>
+        </form> */}
       </Center>
     </ScrollView>
   )
