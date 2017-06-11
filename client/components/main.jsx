@@ -13,6 +13,7 @@ import GeneralState from '../../imports/ui/general/state'
 import LoginState from '../../imports/ui/login/client/state'
 import Login from '../../imports/ui/login/login';
 import handleLogout from '../../imports/ui/logout/logout';
+import ContactUsForm from '../../imports/ui/contactUs/contactUs';
 
 import {Plans} from '../../imports/api/plans/plans'
 
@@ -38,6 +39,9 @@ export const Main = observer(React.createClass({
     if(GeneralState.shouldRender === 'workouts'){
       content = <Workouts/>
     }
+    if(GeneralState.shouldRender === 'contact'){
+      content = <ContactUsForm/>
+    }
     return content
   },
   render(){
@@ -59,6 +63,7 @@ export const Main = observer(React.createClass({
             <Box>
               <button onClick={()=>{GeneralState.changeShouldRender('form')}}>Form</button>
               <button onClick={handleLogout}>Logout</button>
+              <button onClick={()=>{GeneralState.changeShouldRender('contact')}}>Contact Us</button>
             </Box>
           {this._getContent()}
           </Page>
