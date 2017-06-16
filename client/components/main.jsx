@@ -14,8 +14,8 @@ import LoginState from '../../imports/ui/login/client/state'
 import Login from '../../imports/ui/login/login';
 import handleLogout from '../../imports/ui/logout/logout';
 import ContactUsForm from '../../imports/ui/contactUs/contactUs';
-
-import {Plans} from '../../imports/api/plans/plans'
+import TabNav from '../../imports/ui/tabNav/tabNav';
+import {Plans} from '../../imports/api/plans/plans';
 
 export const Main = observer(React.createClass({
   displayName: "Main",
@@ -28,27 +28,24 @@ export const Main = observer(React.createClass({
   //   }
   // },
 
-  //renders the landing page
   _getContent(){
     let content
-    //if the state is form, render form.jsx
-    if(GeneralState.shouldRender === 'form'){
-      content = <Form/>
-    }
-    //if the state is workouts, render workouts.jsx
-    if(GeneralState.shouldRender === 'workouts'){
-      content = <Workouts/>
-    }
-    if(GeneralState.shouldRender === 'contact'){
-      content = <ContactUsForm/>
+    switch (GeneralState.selectedTab) {
+      case 1:
+        content = <Form />
+        break;
+      case 2:
+        content = <ContactUsForm />
+        break;
+      case 3:
+        content = <Workouts />
+        break;
+      default:
     }
     return content
   },
   render(){
     let plans = Plans.find({}).fetch()
-    console.log('this is plans:')
-    console.log('******************************')
-    console.log(plans)
     if (!LoginState.authenticated) {
       return (
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
@@ -60,12 +57,8 @@ export const Main = observer(React.createClass({
         //buttons here are at the top of the page, change the state between form and workouts
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
           <Page style={{backgroundColor: '#ffffff'}}>
-            <Box>
-              <button onClick={()=>{GeneralState.changeShouldRender('form')}}>Form</button>
-              <button onClick={handleLogout}>Logout</button>
-              <button onClick={()=>{GeneralState.changeShouldRender('contact')}}>Contact Us</button>
-            </Box>
           {this._getContent()}
+          <TabNav selected={GeneralState.selectedTab}/>
           </Page>
         </MuiThemeProvider>
       )

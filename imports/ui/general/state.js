@@ -12,6 +12,12 @@ class GeneralState {
     return Meteor.user()
   }
 
+  @observable selectedTab = 1
+
+  @action changeTab = (num) => {
+  this.selectedTab = num
+  }
+
 }
 
 const singleton = new GeneralState()

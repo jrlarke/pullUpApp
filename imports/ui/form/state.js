@@ -10,6 +10,12 @@ class FormState {
     console.log(num)
     this.pullUpCount = num
   }
+
+  @observable showWorkouts = false
+
+  @action setShowWorkouts = (bool) => {
+    this.showWorkouts = bool
+  }
 }
 
 const singleton = new FormState()

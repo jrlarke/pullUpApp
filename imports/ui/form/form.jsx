@@ -4,43 +4,41 @@ import GeneralState from '../general/state'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Center, Page, Box, VBox, ScrollView} from 'react-layout-components';
+import { observer } from 'mobx-react'
 
 import { UserPlans } from '../../api/userPlans/userPlans.js'
 import { Plans } from '../../api/plans/plans'
+import Workouts from '../workouts/workouts'
+
+const renderContent = () => {
+  let content
+  if(FormState.showWorkouts){
+    content = <Workouts/>
+  } else {
+    content = (
+      <ScrollView height={"100vh"}>
+        <Center column>
+          <h1>{name}</h1>
+          <h1>My Fitness App</h1>
+          <p>Thanks for checking out my app! To get started, fill in one of the boxes below:</p>
+          <form onSubmit={handleSubmit}>
+            <Center column>
+              <TextField floatingLabelText='How many pull ups did you do?' onChange={changePullUpCount} type="int" name="pullUps"/>
+              <RaisedButton type="submit" label='submit' style={{width: 100}} primary/>
+            </Center>
+          </form>
+        </Center>
+      </ScrollView>
+    )
+  }
+  return content
+}
 
 const Form = ({name}) => {
   return (
-    <ScrollView height={"100vh"}>
-      <Center column>
-        <h1>{name}</h1>
-        <h1>My Fitness App</h1>
-        <p>Thanks for checking out my app! To get started, fill in one of the boxes below:</p>
-        <form onSubmit={handleSubmit}>
-          <Center column>
-            <TextField floatingLabelText='How many pull ups did you do?' onChange={changePullUpCount} type="int" name="pullUps"/>
-            <RaisedButton type="submit" label='submit' style={{width: 100}} primary/>
-          </Center>
-        </form>
-        {/* <form>
-          <Center column>
-            <TextField floatingLabelText='Enter age here' type='int'name="age"/>
-            <TextField floatingLabelText='Enter your Pull Ups here.' type='int' name="pftPullUps"/>
-            <TextField floatingLabelText='Enter cruches here.' type='int' name="pftCrunches"/>
-            <TextField floatingLabelText='Enter run time here.' name="pftRunTime"/>
-            <RaisedButton type="submit" label='calculate PFT score' style={{width:100}} primary/>
-          </Center>
-        </form>
-        <form>
-          <Center column>
-            <TextField floatingLabelText='Enter age here' type='int'name="cftAge"/>
-            <TextField floatingLabelText='Enter movement to contact time here.' type='int' name="cftMTC"/>
-            <TextField floatingLabelText='Enter ammo can lifts here.' type='int' name="cftACL"/>
-            <TextField floatingLabelText='Enter manuever under fire time here.' name="cftMUF"/>
-            <RaisedButton type="submit" label='calculate CFT score' style={{width:100}} primary/>
-          </Center>
-        </form> */}
-      </Center>
-    </ScrollView>
+    <div>
+      {renderContent()}
+    </div>
   )
 }
 
@@ -54,6 +52,7 @@ const changePullUpCount = (evt) => {
 
 const handleSubmit = (evt) => {
   evt.preventDefault()
+  FormState.setShowWorkouts(true)
   let plan = Plans.findOne({"name" : "50 Pullups"})
   let planId = plan._id
   let userPlan = {
@@ -698,4 +697,4 @@ const handleSubmit = (evt) => {
   UserPlans.insert(userPlan)
   GeneralState.changeShouldRender('workouts')
 }
-export default Form
+export default observer(Form)
